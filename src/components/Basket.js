@@ -1,5 +1,6 @@
 import React from 'react';
 import BasketItem from './BasketItem';
+import {moneyFormat} from "../helpers";
 
 function Basket({total,basket,products}) {
     return (
@@ -8,7 +9,7 @@ function Basket({total,basket,products}) {
             {basket.map(item => (
                 <BasketItem key={item.id} item={item} product={products.find(p => p.id === item.id)}/>
             ))}
-            <h4>Sepet tutarı: ${total.toFixed(2)}</h4>
+            <h4>Sepet tutarı: ${moneyFormat(total)}</h4>
         </div>
     );
 }

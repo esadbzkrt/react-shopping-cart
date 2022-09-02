@@ -17,28 +17,28 @@ function App() {
             return acc + (item.amount * (products.find(product => product.id === item.id).price));
         }, 0));
 
-        }, [basket]);
+    }, [basket]);
 
-        return (
-            <div>
+    return (
+        <div>
 
-                <Header setBasket={setBasket} total={total} money={money}/>
-                <Basket total={total} products={products} basket={basket}/>
-                {products.map(product => (
-                    <Product
-                        key={product.id}
-                        basket={basket}
-                        total={total}
-                        money={money}
-                        setBasket={setBasket}
-                        product={product}
-                    />
-                ))}
+            <Header setBasket={setBasket} total={total} money={money}/>
+            <Basket total={total} products={products} basket={basket}/>
 
-            </div>
+            <div className="container products">
+                    {products.map(product => (
+                        <Product
+                            key={product.id}
+                            basket={basket}
+                            total={total}
+                            money={money}
+                            setBasket={setBasket}
+                            product={product}
+                        />
+                    ))}
+                </div>
+        </div>
+    );
+}
 
-        )
-    }
-
-
-    export default App;
+export default App;
