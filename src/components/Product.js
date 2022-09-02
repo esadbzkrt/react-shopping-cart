@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Product({product, basket, setBasket}) {
+function Product({product,total,money, basket, setBasket}) {
 
     const basketItem = basket.find(item => item.id === product.id);
 
@@ -43,7 +43,7 @@ function Product({product, basket, setBasket}) {
                 <div className="button">
                     <button disabled={!basketItem} onClick={removeBasket}>-</button>
                     <span>{basketItem ? basketItem.amount : 0}</span>
-                    <button onClick={addBasket}>+</button>
+                    <button disabled={(total + product.price) > money} onClick={addBasket}>+</button>
                 </div>
 
                 <style jsx>{`
