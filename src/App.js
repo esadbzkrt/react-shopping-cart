@@ -23,9 +23,8 @@ function App() {
         <div>
 
             <Header setBasket={setBasket} total={total} money={money}/>
-            <Basket total={total} products={products} basket={basket}/>
-
-            <div className="container products">
+            <div className="pageContainer">
+                <div className="container products">
                     {products.map(product => (
                         <Product
                             key={product.id}
@@ -37,6 +36,11 @@ function App() {
                         />
                     ))}
                 </div>
+
+
+                <Basket total={total} products={products} basket={basket} setBasket={setBasket}/>
+            </div>
+
         </div>
     );
 }

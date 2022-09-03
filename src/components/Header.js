@@ -1,15 +1,13 @@
 import React from 'react';
 import {moneyFormat} from "../helpers";
 
-function Header({setBasket,total, money}) {
+function Header({total, money}) {
 
-    const resetBasket = () => {
-        setBasket([]);
-    };
+
     return (
         <div className="header">
            <h5> Harcamak için ${moneyFormat((money - total))} paranız var. </h5>
-            <button onClick={resetBasket}>Sıfırla</button>
+
 
             <style jsx>{`
               .header {

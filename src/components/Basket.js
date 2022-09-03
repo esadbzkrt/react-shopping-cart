@@ -2,14 +2,39 @@ import React from 'react';
 import BasketItem from './BasketItem';
 import {moneyFormat} from "../helpers";
 
-function Basket({total,basket,products}) {
+function Basket({setBasket, total, basket, products}) {
+
+    const resetBasket = () => {
+        setBasket([]);
+    };
+
     return (
-        <div>
+        <div className="basketContainer">
+            <span className="header">
+
             <h5>Sepetinizde {basket.length} ürün var.</h5>
+            <button onClick={resetBasket}>Sıfırla</button>
+            </span>
+
+
             {basket.map(item => (
                 <BasketItem key={item.id} item={item} product={products.find(p => p.id === item.id)}/>
             ))}
-            <h4>Sepet tutarı: ${moneyFormat(total)}</h4>
+            <div className="total">
+
+                <span>Toplam: </span>
+                <span>{"$" + moneyFormat(total)}</span>
+            </div>
+
+            <style jsx>{`
+              .basketContainer {
+                padding: 10px;
+                border: 1px solid #ddd;
+                background: #fff;
+                margin-bottom: 10px;
+                width: 24%;
+              }
+            `}</style>
         </div>
     );
 }
