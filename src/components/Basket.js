@@ -37,7 +37,6 @@ function Basket({setBasket, total, basket, products}) {
               .header .reset {
                 background: #fff;
                 border: 1px solid #ddd;
-                padding: 5px;
                 border-radius: 5px;
                 cursor: pointer;
                 
