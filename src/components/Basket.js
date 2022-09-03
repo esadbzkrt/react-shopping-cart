@@ -13,7 +13,7 @@ function Basket({setBasket, total, basket, products}) {
             <span className="header">
 
             <h5>Sepetinizde {basket.length} ürün var.</h5>
-            <button onClick={resetBasket}>Sıfırla</button>
+            <button className="reset" onClick={resetBasket}>Sıfırla</button>
             </span>
 
 
@@ -33,6 +33,14 @@ function Basket({setBasket, total, basket, products}) {
                 background: #fff;
                 margin-bottom: 10px;
                 width: 24%;
+              }
+              .header .reset {
+                background: #fff;
+                border: 1px solid #ddd;
+                padding: 5px;
+                border-radius: 5px;
+                cursor: pointer;
+                
               }
             `}</style>
         </div>
